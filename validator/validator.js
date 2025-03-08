@@ -27,10 +27,10 @@ export class Validator {
         })
     }
 
-    #isAllKeysStrings (data) {
-        const currentKeys = Object.keys(data); 
-        currentKeys.forEach(key => {
-            const type = typeof key; 
+    #isAllValuessStrings (data) {
+        const currentValues = Object.values(data); 
+        currentValues.forEach(val => {
+            const type = typeof val; 
             if (type !== "string") {
                 throw new KeyIsNotStringError(`One of the keys is not a string: ${key}: ${type}`)
             }
@@ -40,6 +40,6 @@ export class Validator {
     validate (data) {
         this.#isNumberOfFieldsCorrect(data); 
         this.#areReqiredFieldsIncluded(data); 
-        this.#isAllKeysStrings(data); 
+        this.#isAllValuessStrings(data); 
     }
 }
