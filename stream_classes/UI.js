@@ -1,13 +1,15 @@
 import Readable from "node:stream"; 
 
 export class UI extends Readable {
-        constructor (data, options = {}) {
+        constructor (data, validator, options = {}) {
         super (options); 
         this.data = data; 
+        this.validator = validator; 
         this.init(); 
     }
     init () {
         this.on ('data', (chunk)=>{ 
+            this.validator.validate(chunk);  // Added validation  class has to be implemented  
             console.log("Within reader"); 
             console.log(chunk) 
         })
@@ -21,4 +23,5 @@ export class UI extends Readable {
         } 
         this.push(current); 
     }
+  
 }
