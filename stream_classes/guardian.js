@@ -1,4 +1,4 @@
-import Transform from "node:stream"; 
+import {Transform} from "node:stream"; 
 
 export class Guardian extends Transform {
     constructor (options) {
@@ -6,7 +6,7 @@ export class Guardian extends Transform {
     } 
     _transform (chunk, encoding, callback) {
         console.log(chunk) 
-        this.push(number); 
+        this.push(chunk); 
         callback(); 
     }
 }

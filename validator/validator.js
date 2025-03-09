@@ -1,6 +1,6 @@
 import { InvalidNumberOfFieldsError, 
          OneOfRequiredFieldsMissingError, 
-         KeyIsNotStringError } from "../errors/errors";
+         KeyIsNotStringError } from "../errors/errors.js";
 
 
 export class Validator {
@@ -32,7 +32,7 @@ export class Validator {
         currentValues.forEach(val => {
             const type = typeof val; 
             if (type !== "string") {
-                throw new KeyIsNotStringError(`One of the keys is not a string: ${key}: ${type}`)
+                throw new KeyIsNotStringError(`One of the keys is not a string: ${val}: ${type}`)
             }
         })
     }
