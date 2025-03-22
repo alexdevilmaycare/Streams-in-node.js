@@ -5,6 +5,7 @@ export class Guardian extends Transform {
         super(options);
     } 
     _transform (chunk, encoding, callback) {
+        console.log("Within guardian"); 
         console.log(chunk) 
         this.push(chunk); 
         callback(); 

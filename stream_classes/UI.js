@@ -10,7 +10,8 @@ export class UI extends Readable {
 
 init () {
     this.on ('data', (chunk)=>{
-        this.validator.validate(chunk);  
+        this.validator.validate(chunk);
+        console.log("Within readable");   
         console.log(chunk) 
     })
 }
