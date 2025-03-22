@@ -1,13 +1,15 @@
 import {Transform} from "node:stream"; 
+ 
 
 export class Guardian extends Transform {
-    constructor (options) {
+    constructor (options, transform) {
         super(options);
+        this.transform = transform; 
     } 
     _transform (chunk, encoding, callback) {
         console.log("Within guardian"); 
-        console.log(chunk) 
-        this.push(chunk); 
+        const transFormedValue = this.transform(chunk);  
+        this.push(transFormedValue); 
         callback(); 
     }
 }
