@@ -1,3 +1,4 @@
+import { timeStamp } from "node:console";
 import {EventEmitter} from "node:events"; 
 
 
@@ -10,9 +11,9 @@ export class DataBase extends EventEmitter {
     }
     #initDB () {
        this.on ("data", (data)=> {
-        console.log("Adding entry to the data base"); 
-        this.#storage.push (data); 
+           this.#storage.push (data); 
        })
+
        this.on ("request", ()=> {
         console.log("Data was requested"); 
        })
@@ -21,7 +22,7 @@ export class DataBase extends EventEmitter {
         this.emit("data", entry); 
     }
     getData () {
-        this.emit("request"); 
+        this.emit("request");  
         return this.#storage; 
     } 
 }

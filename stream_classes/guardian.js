@@ -7,7 +7,6 @@ export class Guardian extends Transform {
         this.transform = transform; 
     } 
     _transform (chunk, encoding, callback) {
-        console.log("Within guardian"); 
         const transFormedValue = this.transform(chunk);  
         this.push(transFormedValue); 
         callback(); 
