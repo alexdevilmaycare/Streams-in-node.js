@@ -8,7 +8,7 @@ export class Guardian extends Transform {
     } 
     _transform (chunk, encoding, callback) {
         console.log("Within Logger"); 
-        this.eventAction(); 
+        this.eventAction(chunk); 
         this.push (chunk);  
         callback(); 
     }
